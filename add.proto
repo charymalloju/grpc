@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package add;
+
+option go_package = "calc";
+
+
+message Request {
+    string name = 1;
+    string email = 2;
+    int64 phone = 3;
+}
+
+message Response {
+    repeated Request result = 1 ;
+}
+
+service AddService {
+    rpc Add(Request) returns (Response);
+    rpc GetAll(Request) returns (Response);
+}
